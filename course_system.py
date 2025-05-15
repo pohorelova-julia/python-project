@@ -40,8 +40,8 @@ class CourseManager:
         self.add_course(web_dev_course)
 
         # + студенти
-        student1 = Student("Іван", "Петренко", "ivan.petrenko@example.com", "1990-01-01")
-        student2 = Student("Марія", "Коваленко", "maria.kovalenko@example.com", "1992-05-15")
+        student1 = Student("Іван", "Іванов", "ivan.ivanov@ukd.com", "2001-01-01")
+        student2 = Student("Іванна", "Іваненко", "ivanna.ivanenko@gmail.com", "2005-05-05")
 
         # + студенти до менеджера
         self.add_student(student1)
