@@ -1,4 +1,4 @@
-from course_system import CourseManager
+from course_manager import CourseManager
 
 def display_menu():
     print("""
