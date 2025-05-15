@@ -12,3 +12,6 @@ class Lecture:
 
     def __str__(self):
         return f"Лекція: {self.title}"
+
+    def get_type(self):
+        return "Лекція"
