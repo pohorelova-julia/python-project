@@ -4,7 +4,7 @@ class Lesson:
     def __init__(self, title):
         self.id = IdGenerator.get_next_id("lesson")
         self.title = title
-        self.content = []  # Буде містити об'єкти Lecture та Task
+        self.content = []  # міститиvt Lecture та Task
 
     # + лекція/завдання
     def add_content(self, content_item):
