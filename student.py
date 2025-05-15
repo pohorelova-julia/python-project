@@ -10,6 +10,7 @@ class Student:
         self.email = self._validate_email(email)
         self.birth_date = self._validate_birth_date(birth_date)
         self.enrolled_courses = {}  # {course_id: {lesson_id: progress}}
+        self.progress = {}
 
     def _validate_email(self, email):
         email_pattern = re.compile(r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$')
@@ -32,11 +33,15 @@ class Student:
     def is_enrolled_in_course(self, course_id):
         return course_id in self.enrolled_courses
 
+
+    def get_lesson_progress(self, course_id, lesson_id):
+        return self.progress.get(course_id, {}).get(lesson_id, 0)
+
     # оновлення прогресу
     def update_progress(self, course_id, lesson_id, progress):
-        if course_id in self.enrolled_courses:
-            if 0 <= progress <= 100:
-                self.enrolled_courses[course_id][lesson_id] = progress
+        if course_id not in self.progress:
+            self.progress[course_id] = {}
+        self.progress[course_id][lesson_id] = progress
 
     # отрим загальний прогрес
     def get_course_progress(self, course_id, course_lessons):
