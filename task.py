@@ -5,11 +5,13 @@ class Task:
         self.id = IdGenerator.get_next_id("task")
         self.title = title
         self.description = description
-        self.max_score = 100
 
     # оновлення опису
     def update_description(self, new_description):
         self.description = new_description
 
     def __str__(self):
-        return f"Завдання: {self.title} (Макс. оцінка: {self.max_score})"
+        return f"Завдання: {self.title})"
+
+    def get_type(self):
+        return "Завдання"
