@@ -328,9 +328,8 @@ def update_student_progress_action(course_manager):
     else:
         print("Невірний номер курсу.")
 
-
 def view_all_courses_action(course_manager):
-    print("\n----- Всі курси -----")
+    print("\n---- Всі курси ----")
     courses = course_manager.get_all_courses()
 
     if not courses:
@@ -338,7 +337,29 @@ def view_all_courses_action(course_manager):
         return
 
     for course in courses:
-        print(f"ID: {course.id} | Назва: {course.title} | Занять: {len(course_manager.get_course_lessons(course.id))}")
+        print(f"\n--- Курс: {course.title} (ID: {course.id}) ---")
+        print(f"Опис: {course.description}")
+
+        if not course.lessons:
+            print("Курс не містить занять.")
+            continue
+
+        print("\nЗаняття:")
+        for i, lesson in enumerate(course.lessons):
+            print(f"\n  {i + 1}. {lesson.title} (ID: {lesson.id})")
+
+            if not lesson.content:
+                print("    Заняття не містить вмісту.")
+                continue
+
+            print("    Вміст:")
+            for j, content in enumerate(lesson.content):
+                if hasattr(content, 'content'):
+                    print(f"      {j + 1}. Лекція. {content.title}")
+                    print(f"         Вміст: {content.content}")
+                else:
+                    print(f"      {j + 1}. Завдання. {content.title}")
+                    print(f"         Опис: {content.description}")
 
 
 def view_all_students_action(course_manager):
