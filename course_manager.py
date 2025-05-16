@@ -243,10 +243,10 @@ class CourseManager:
         return self.validators.validate_course(title, description)
 
     def validate_course_title(self, title):
-        return self.validators.validate_course(title, "Тимчасовий опис для валідації")
+        return self.validators.validate_course(title, "Пустий опис")
 
     def validate_course_description(self, description):
-        return self.validators.validate_course("Тимчасова назва для валідації", description)
+        return self.validators.validate_course("Пуста назва", description)
 
     def validate_lesson(self, title):
         return self.validators.validate_lesson(title)
